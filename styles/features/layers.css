@@ -1,0 +1,70 @@
+
+/* Layers feature */
+.sidebar .layers {
+    position: relative;
+    padding: 0;
+    margin: 20px 0px;
+}
+
+.sidebar .layers h6 {
+    background-color: #fff;
+    position: absolute;
+    font-family: serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #676565;
+    padding: 0;
+    margin: 0;
+    left: 0px;
+    top: -8px;
+    z-index: 10;
+}
+
+.sidebar .layers #sortable {
+    position: relative;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    height: 200px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.sidebar .layers #sortable li {
+    margin: 0;
+    padding: 4px;
+    padding-left: 6px;
+    cursor: pointer;
+}
+.sidebar .layers #sortable li:active {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-top: 1px dotted #ccc;
+    border-bottom: 1px dotted #ccc;
+}
+.sidebar .layers #sortable li.current {
+    background-color: #333;
+    color: #fff;
+}
+.sidebar .layers #sortable li span {
+    position: relative;
+    margin-right: 15px;
+}
+
+.sidebar .layers .action {
+    padding-top: 4px;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar .layers .action div {
+    text-align: center;
+}
+
+.sidebar .layers .action button {
+    font-size: 11px;
+    margin-bottom: 2px;
+}

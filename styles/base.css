@@ -1,0 +1,63 @@
+/*.editor {
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+}
+
+.editor .canvas {
+    display: inline-block;
+    vertical-align: top;
+    width: 600px;
+    height: 600px;
+    background: white;
+    position: relative;
+    text-align: center;
+    padding-bottom: 0;
+    box-shadow: rgba(0,0,0,0.1) 0 0 25px;
+    float: left;
+}
+
+.editor .sidebar {
+    float: right;
+}
+*/
+
+#MaykaEditor {
+    width: 1000px;
+}
+
+#MaykaEditor .toolbar button {
+    margin-top: 5px;
+}
+
+#MaykaEditor #data-content {
+    display: none;
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 583px;
+}
+
+.popover-content {
+    height: 340px;
+    overflow-y: auto;
+}
+
+.popover-content img {
+    width: 70px;
+    height: 100px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.sidebar {
+    padding: 0px;
+}
+
+.sidebar #var h6 {
+    font-weight: bold;
+    font-size: 14px;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<title>MaykaEditor</title>
+<script src="./js/plagins/jquery-2.1.1.min.js"></script>
+<script src="./js/plagins/jquery-ui.min.js"></script>
+<script src="./js/plagins/bootstrap.min.js"></script>
+<script src="./js/plagins/fabric.min-1.4.12.js"></script>
+<script src="./js/MaykaEditor.js"></script>
+<link rel="stylesheet" href="./styles/plagins/bootstrap.min.css">
+<link rel="stylesheet" href="./styles/plagins/bootstrap-theme.min.css">
+<link rel="stylesheet" href="./styles/MaykaEditor.css">
+</head>
+<body>
+    <div id="MaykaEditor" class="container">
+        <div class="row">
+            <div class="toolbar col-md-1 col-xs-1 col-sm-1 col-lg-1">
+                <button type="button" class="btn btn-default" id="color">
+                    <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" id="photo">
+                    <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" id="clipart">
+                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" id="text">
+                    <span class="glyphicon glyphicon-font" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" id="draw">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="canvas col-md-7 col-xs-7 col-sm-7 col-lg-7">
+                <img src="./img/white-f.png" id="background">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="sidebar col-md-4 col-xs-4 col-sm-4 col-lg-4">
+                <div class="layers">
+                    <h6>Слои</h6>
+                    <ul id="sortable">
+                        <li class="ui-state-default"><span class="glyphicon glyphicon-camera"></span>фото-1</li>
+                        <li class="ui-state-default"><span class="glyphicon glyphicon-font"></span>Привет мир!</li>
+                        <li class="ui-state-default current"><span class="glyphicon glyphicon-camera"></span>фото-2</li>
+                        <li class="ui-state-default"><span class="glyphicon glyphicon-font"></span>Hello, world!</li>
+                        <li class="ui-state-default"><span class="glyphicon glyphicon-camera"></span>фото-3</li>
+                        <li class="ui-state-default"><span class="glyphicon glyphicon-heart"></span>Кот лижет лапу</li>
+                        <li class="ui-state-default"><span class="glyphicon glyphicon-heart"></span>Кошка просто</li>
+                        <li class="ui-state-default"><span class="glyphicon glyphicon-pencil"></span>Кисть-1</li>
+                        <li class="ui-state-default"><span class="glyphicon glyphicon-pencil"></span>кисть-2</li>
+                    </ul>
+                    <div class="action">
+                        <div>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Шаг назад"><span class="glyphicon glyphicon-step-backward"></span></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Шаг вперёд"><span class="glyphicon glyphicon-step-forward"></span></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Растянуть"><span class="glyphicon glyphicon-fullscreen"></span></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Выровнять"><span class="glyphicon glyphicon-resize-vertical"></span></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Выровнять"><span class="glyphicon glyphicon-resize-horizontal"></span></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Поворот"><span class="glyphicon glyphicon-refresh"></span></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Клонировать"><span class="glyphicon glyphicon-duplicate"></span></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Удалить"><span class="glyphicon glyphicon-trash"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="var"></div>
+            </div>
+        </div>
+        <div id="data-content">
+            <div id="toolbar">
+                <div class="clipart">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="1">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="2">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="3">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="4">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="5">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="6">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="7">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="8">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="9">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="10">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="11">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="12">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="13">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="14">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="15">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="16">
+                    <img class="col-md-4 col-xs-4 col-sm-4 col-lg-4" src="./img/clipart/thumbnails/cat.png" alt="17">
+                </div>
+                <div class="color"><span class="color">color</span></div>
+                <div class="photo"><span class="photo">photo</span></div>
+                <div class="text"><span class="text">text</span></div>
+                <div class="draw"><span class="draw">draw</span></div>
+            </div>
+            <div id="sidebar">
+                <div class="clipart">
+                    <div id="1">
+                        <h6>Untitled</h6>
+                        <div>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                            <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        </div>
+                    </div>
+                    <div id="5">
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                        <a href="./img/clipart/cat.svg" class="col-md-4 col-xs-4 col-sm-4 col-lg-4"><img src="./img/clipart/thumbnails/cat.png"></a>
+                    </div>
+                </div>
+                <div class="color"></div>
+                <div class="photo"></div>
+                <div class="text">
+                    <form>
+                        <div class="form-group">
+                            <label class="control-label">Текст:</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                        <div class="form-group form-inline">
+                            <select class="form-control">
+                                <option>Arial</option>
+                                <option>Verdana</option>
+                                <option>San Serif</option>
+                                <option>Roboto</option>
+                                <option>Ubuntu</option>
+                            </select>
+                            <select class="form-control">
+                                <option>10</option>
+                                <option>12</option>
+                                <option>14</option>
+                                <option>16</option>
+                                <option>18</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-inline">
+                            <button type="button" class="btn btn-default">Цвет</button>
+                            <button type="button" class="btn btn-default">Фон</button>
+                            <button type="button" class="btn btn-default"><b>Ж</b></button>
+                            <button type="button" class="btn btn-default"><i>К</i></button>
+                            <button type="button" class="btn btn-default"><u>П</u></button>
+                            <button type="button" class="btn btn-default"><s>З</s></button>
+                        </div>
+                        <div class="form-group form-inline">
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-left"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-center"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-right"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-align-justify"></span></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="draw"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

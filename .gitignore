@@ -1,0 +1,8 @@
+/img/*
+/js/plagins/
+/js/MaykaEditor.js
+/styles/plagins/
+/styles/fonts/
+/styles/MaykaEditor.css
+/node_modules/*
+/.project
