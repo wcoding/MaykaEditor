@@ -1,0 +1,17 @@
+
+/* Clipart feature */
+.sidebar #var > div {
+    width: 100%;
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.sidebar #var a {
+    margin-bottom: 5px;
+}
+
+.sidebar #var a img {
+    width: 70px;
+    height: 100px;
+}
