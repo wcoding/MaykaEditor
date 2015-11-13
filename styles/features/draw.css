@@ -1,0 +1,11 @@
+
+/* Draw feature */
+.sidebar #var ul.row {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar #var ul.row li img {
+    cursor: pointer;
+}
